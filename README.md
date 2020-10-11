@@ -38,18 +38,13 @@ using a firewall.
 1. Clone this repository at your desired install location
 2. Initialize submodules with `git submodule update --init --recursive`
 3. Copy `.env.template` to `.env` and fill in every variable accordingly
-4. Start the docker container using `docker-compose up -d`
-5. Run `update.sh` script to create your database and collect static files
-6. To create a user execute into the docker container (`docker-compose run web_pigpio python3 sh`) and run `manage.py createsuperuser`
+4. applications. Make sure to **edit `settings.py`** or set the environment variables manually.  
+5. To install all the packages you need run `pip3 install -r requirements.txt`
+6. Use `python3 manage.py makemigrations`, `python3  manage.py migrate` and `python3 manage.py collectstatic` to setup your database and collect the static files.
+7. python3 manage.py createsuperuser 
+8. python3 manage.py runserver 0.0.0.0:8000
+9. navigate http://host:8000/admin and login
 
-
-### Manual Installation
-To install PiGPIO without docker please refer to any generalizes installation tutorial for Django
-applications. Make sure to **edit `settings.py`** or set the environment variables manually.  
-
-To install all the packages you need run `pip install -r requirements.txt`
-
-Use `manage.py migrate` and `manage.py collectstatic` to setup your database and collect the static files.
 
 ## Updating
 If you are using Docker simply pull the latest code, start the container and run `update.sh`.
