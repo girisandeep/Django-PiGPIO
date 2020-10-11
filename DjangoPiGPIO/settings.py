@@ -22,11 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # Get vars from .env files
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'XYZ' #os.getenv('SECRET_KEY')
 
-DEBUG = bool(int(os.getenv('DEBUG', False)))
+DEBUG = bool(int(os.getenv('DEBUG', True)))
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',') if os.getenv('ALLOWED_HOSTS') else []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
 
 LOGIN_REDIRECT_URL = "index"
 LOGOUT_REDIRECT_URL = "index"
@@ -91,14 +91,11 @@ WSGI_APPLICATION = 'DjangoPiGPIO.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('POSTGRES_PORT'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'NAME': os.getenv('POSTGRES_DB'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -128,7 +125,7 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'DE-de'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

@@ -9,5 +9,4 @@ django-crispy-forms
 django-macros
 RPi.GPIO
 python-dotenv==0.7.1
-psycopg2==2.7.4
 gunicorn==19.7.1
